@@ -1,7 +1,7 @@
 {
-  "name": "nft-marketplace",
+  "name": "NFT MARKETPLACE",
   "version": "1.0.0",
-  "description": "NFT Marketplace",
+  "description": "NFT MARKETPLACE",
   "main": "server/index.js",
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",

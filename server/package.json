@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "nft-marketplace-server",
   "version": "1.0.0",
   "description": "nft-marketplace-server",
   "scripts": {
