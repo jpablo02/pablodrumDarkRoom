@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const keys = require('./config/keys');
 const routes = require('./routes');
 const socket = require('./socket');
-const setupDB = require('./utils/db');
+// const setupDB = require('./utils/db');
 
 const { port } = keys;
 const app = express();
@@ -22,7 +22,7 @@ app.use(
 );
 app.use(cors());
 
-setupDB();
+// setupDB();
 require('./config/passport')(app);
 app.use(routes);
 
