@@ -7,7 +7,6 @@
     "dev": "npm-run-all --parallel dev:*",
     "dev:client": "cd client && yarn start",
     "dev:server": "cd server && yarn dev",
-    "postinstall": "npm-run-all --parallel install:*",
     "install:client": "cd client && yarn",
     "install:server": "cd server && yarn",
     "test": "echo \"Error: no test specified\" && exit 1"
