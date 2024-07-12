@@ -30,9 +30,13 @@ In the project directory, you can run:
 
 ### Preparation
 ```bash
-yarn 
+yarn
+yarn install:server
+yarn install:client 
 # or
 npm install
+npm run install:server
+npm run install:client 
 ```
 
 ### Getting Started
