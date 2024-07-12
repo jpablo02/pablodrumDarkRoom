@@ -30,30 +30,14 @@ In the project directory, you can run:
 
 ### Preparation
 ```bash
-yarn install:server
-yarn install:client 
+yarn 
 # or
-npm run install:server
-npm run install:client 
-# or
-pnpm install:server
-pnpm install:client 
-# or
-bun install:server
-bun install:client 
+npm install
 ```
 
 ### Getting Started
 ```bash
-yarn dev:server
-yarn dev:client
+yarn dev
 # or
-npm run dev:server
-npm run dev:client
-# or
-pnpm dev:server
-pnpm dev:client
-# or
-bun dev:server
-bun dev:client
+npm run dev
 ```
