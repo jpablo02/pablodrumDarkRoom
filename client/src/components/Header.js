@@ -10,7 +10,7 @@ const Header = () => {
     const handleWallet = () => {
       activateBrowserWallet();
       // console.log(account); 
-      // account is the wallet address
+      // account: wallet address
     }
 
     return (
