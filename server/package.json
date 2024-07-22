@@ -1,5 +1,5 @@
 {
-  "name": "nft-marketplace-client",
+  "name": "nft-marketplace-server",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon",
