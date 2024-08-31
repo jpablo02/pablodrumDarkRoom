@@ -9,7 +9,8 @@ const Header = () => {
 
     const handleWallet = () => {
       activateBrowserWallet();
-
+      // console.log(account); 
+      // account: wallet address
     }
 
     return (
@@ -22,7 +23,7 @@ const Header = () => {
           <a>Community</a>
           <a>Craft NFT</a>
 
-          <button id="connect-wallet" onClick={handleWallet} >{!account ? 'Connect Wallet' : account}</button>
+          <button id="connect-wallet" onClick={handleWallet}>0xa943B664871933e28e2E5A818F9d0431d4571F79</button>
         </div>
       </div>
     );
