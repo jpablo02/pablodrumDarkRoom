@@ -1,6 +1,7 @@
 import react, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useEthers, useEtherBalance } from "@usedapp/core";
+import { ConnectButtons } from "./connectButton";
 
 const Header = () => {
 
@@ -22,6 +23,8 @@ const Header = () => {
           <a>Dark NFTs</a>
           <a>Community</a>
           <a>Craft NFT</a>
+
+          <ConnectButtons/>
 
           <button id="connect-wallet" onClick={handleWallet}>0xa943B664871933e28e2E5A818F9d0431d4571F79</button>
         </div>
