@@ -1,37 +1,31 @@
-require('dotenv').config();
-const express = require('express');
-const chalk = require('chalk');
-const cors = require('cors');
-const helmet = require('helmet');
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import Explore from "./pages/Explore";
 
-const keys = require('./config/keys');
-const routes = require('./routes');
-const socket = require('./socket');
-// const setupDB = require('./utils/db');
+// wagmi
+import { getConfig } from "../config.ts";
+import { cookieToInitialState } from "wagmi";
 
-const { port } = keys;
-const app = express();
+import NFTDetail from "./pages/NFTDetail";
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-    frameguard: true
-  })
+ReactDOM.render(
+  <WagmiConfig config={config}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/detail" element={<NFTDetail />} />
+      </Routes>
+    </BrowserRouter>
+  </WagmiConfig>,
+  document.getElementById("root")
 );
-app.use(cors());
 
-// setupDB();
-require('./config/passport')(app);
-app.use(routes);
-
-const server = app.listen(port, () => {
-  console.log(
-    `${chalk.green('✓')} ${chalk.blue(
-      `Listening on port ${port}. Visit http://localhost:${port}/ in your browser.`
-    )}`
-  );
-});
-
-socket(server);
+reportWebVitals();
