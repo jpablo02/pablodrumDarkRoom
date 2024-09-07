@@ -9,7 +9,8 @@
     "dev:server": "cd server && yarn dev",
     "install:client": "cd client && yarn",
     "install:server": "cd server && yarn",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "index.js"
   },
   "keywords": [
     "node",

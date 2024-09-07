@@ -6,7 +6,7 @@ const helmet = require('helmet');
 
 const keys = require('./config/keys');
 const routes = require('./routes');
-const socket = require('./socket');
+const socket = require('./socket/index.js');
 // const setupDB = require('./utils/db');
 
 const { port } = keys;
