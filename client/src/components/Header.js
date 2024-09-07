@@ -1,18 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useEthers, useEtherBalance } from "@usedapp/core";
+import io from "socket.io-client"; // Importar socket.io-client
+
+const socket = io("http://localhost:3000"); // Conectar al servidor
 
 const Header = () => {
-  const { activateBrowserWallet, account, deactivate } = useEthers(); // Obtener la cuenta conectada
+  const { activateBrowserWallet, account, deactivate } = useEthers();
   const etherBalance = useEtherBalance(account);
-  console.log(account);
 
-  // Manejar la conexión o desconexión de la wallet
+  useEffect(() => {
+    if (account) {
+      // Enviar la cuenta de la wallet al servidor a través de sockets
+      socket.emit('walletAccount', account);
+    }
+  }, [account]); // Ejecutar cuando 'account' cambie
+
   const handleWallet = () => {
     if (account) {
-      deactivate(); // Desconectar la wallet
+      deactivate();
     } else {
-      activateBrowserWallet(); // Activar la billetera del navegador
+      activateBrowserWallet();
     }
   };
 
@@ -28,7 +36,6 @@ const Header = () => {
         <a>Community</a>
         <a>Craft NFT</a>
 
-        {/* Botón  */}
         <button id="connect-wallet" onClick={handleWallet}>
           {account ? `${account.slice(0, 6)}...${account.slice(-4)}` : "Connect Wallet"}
         </button>

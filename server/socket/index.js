@@ -47,7 +47,7 @@ const authHandler = async (socket, next) => {
   next();
 };
 
-const socket = server => {
+const socket = (server) => {
   const io = socketio(server, {
     cors: {
       origin: '*',
@@ -57,7 +57,12 @@ const socket = server => {
 
   io.use(authHandler);
 
-  const onConnection = socket => {
+  const onConnection = (socket) => {
+    // Manejar la cuenta de la wallet recibida desde el frontend
+    socket.on('walletAccount', (account) => {
+      console.log(`Cuenta de wallet recibida: ${account}`);
+    });
+
     support.supportHandler(io, socket);
   };
 
