@@ -28,7 +28,7 @@ const Header = () => {
         <a>Community</a>
         <a>Craft NFT</a>
 
-        {/* Botón de conexión de billetera */}
+        {/* Botón  */}
         <button id="connect-wallet" onClick={handleWallet}>
           {account ? `${account.slice(0, 6)}...${account.slice(-4)}` : "Connect Wallet"}
         </button>
