@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useEthers, useEtherBalance } from "@usedapp/core";
-import io from "socket.io-client"; // Importar socket.io-client
+import { useEthers } from "@usedapp/core";
+import io from "socket.io-client";
 
-const socket = io("http://localhost:3000"); // Conectar al servidor
+const socket = io("http://localhost:3000"); // Asegúrate de que el servidor esté corriendo
 
 const Header = () => {
   const { activateBrowserWallet, account, deactivate } = useEthers();
-  const etherBalance = useEtherBalance(account);
 
   useEffect(() => {
     if (account) {
-      // Enviar la cuenta de la wallet al servidor a través de sockets
-      socket.emit('walletAccount', account);
+      console.log('Enviando cuenta de wallet:', account);
+      socket.emit('walletAccount', account); // Enviar cuenta al servidor
     }
-  }, [account]); // Ejecutar cuando 'account' cambie
+  }, [account]); // Ejecutar cuando cambie la cuenta
 
   const handleWallet = () => {
     if (account) {
